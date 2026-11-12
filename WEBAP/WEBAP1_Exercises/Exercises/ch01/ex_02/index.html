@@ -9,10 +9,19 @@
         $(document).ready(function()
         {
             // TODO: #asHtml: insert the value of #content into #output with html()
+            $("#asHtml").click(function(){
+                $("#output").html($("#content").val());
+            })
 
             // TODO: #asText: insert the value of #content into #output with text()
+            $("#asText").click(function(){
+                $("#output").text($("#content").val());
+            })
 
             // TODO: #showSource: display the HTML of #output as text in #source
+            $("#showSource").click(function(){
+                $("#source").text($("#output").html());
+            })
         });
     </script>
 </head>
