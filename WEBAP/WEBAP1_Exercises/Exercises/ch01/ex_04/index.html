@@ -9,6 +9,24 @@
         $(document).ready(function()
         {
             // TODO: #calc: read #a, #b and #op, convert the values to numbers and display the result in #result
+            function calculation (){
+                var A =  parseFloat($("#a").val());
+                var B =  parseFloat($("#b").val());
+                var OP =  $("#op").val();
+                var result;
+                if (isNaN(A) || isNaN(B)) {
+                    $("#result").text("Please enter valid numbers.");
+                    $("#result").addClass("error");
+                    return;
+                }
+                if (OP === "/" && B === 0) {
+                    $("#result").text("Division by zero is not allowed.");
+                    $("#result").addClass("error");
+                    return;
+                }
+                switch // continiue...
+                
+            }
 
             // TODO: error messages for invalid input and division by zero
         });

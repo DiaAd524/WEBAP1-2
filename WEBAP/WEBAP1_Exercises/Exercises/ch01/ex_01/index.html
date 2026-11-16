@@ -6,35 +6,51 @@
     <link rel="stylesheet" href="../../../assets/exercise.css">
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
     <script>
+        function highlight(selector)
+        {
+            $(selector).css("background-color", "yellow");
+        }
+        function reset()
+        {
+            $("*").css("background-color", "");
+        }
         $(document).ready(function()
         {
             // TODO: bind a click event to every button (b1 … b8)
             $("#b1").click(function(){
-                $("p").css("background-color", "yellow");
+                reset();
+                highlight("p");
             })
             $("#b2").click(function(){
-                $("#left").css("background-color", "yellow");
+                reset();
+                highlight("#left");
             })
             $("#b3").click(function(){
-                $("#left p").css("background-color", "yellow");
+                reset();
+                highlight("#left p");
             })
             $("#b4").click(function(){
-                $(".special").css("background-color", "yellow");
+                reset();
+                highlight(".special");
             })
             $("#b5").click(function(){
-                $("p.special").css("background-color", "yellow");
+                reset();
+                highlight("p.special");
             })
             $("#b6").click(function(){
-                $("div#right p.special").css("background-color", "yellow");
+                reset();
+                highlight("div#right p.special");
             })
             $("#b7").click(function(){
-                $("#page p").css("background-color", "yellow");
+                reset();
+                highlight("#page p");
             })
             $("#b8").click(function(){
-                $("#page > p").css("background-color", "yellow");
+                reset();
+                highlight("#page > p");
             })
             $("#reset").click(function(){
-                $("*").css("background-color", "");
+                reset();
             })
             // TODO: highlight the selected elements with css("background-color", "yellow")
 

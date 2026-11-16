@@ -9,16 +9,29 @@
     <script>
         $(document).ready(function () {
             // TODO: #greet: read #firstName and #lastName with val() and display a greeting in #output
-            $("#greet").click(function () {
+            function clickbutton() {
                 var firstName = $("#firstName").val();
                 var lastName = $("#lastName").val();
+                var firstName = firstName.trim();
+                var lastName = lastName.trim();
                 if (firstName && lastName) {
                     $("#output").text("Hello, " + firstName + " " + lastName + "!");
                     $("#message").text("").removeClass("error");
-                } else {
-                    $("#message").text("Please fill in both fields.").addClass("error");
+                    $("#firstName, #lastName").val("");
+                } else if (!firstName) {
+                    $("#message").text("Please fill in the first name as well.").addClass("error");
+                    $("#firstName").focus();
+                } else if (!lastName) {
+                    $("#message").text("Please fill in the last name as well.").addClass("error");
+                    $("#lastName").focus();
+                }
+            }
+            $("#lastName").keyup(function (event) {
+                if (event.key === "Enter") {
+                    clickbutton();
                 }
             });
+            $("#greet").click(clickbutton());
             // TODO: error message in #message (class error) if a field is empty
 
             // TODO: Enter in #lastName triggers the greeting
