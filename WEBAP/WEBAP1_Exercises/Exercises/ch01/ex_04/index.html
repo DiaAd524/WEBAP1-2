@@ -8,7 +8,6 @@
     <script>
         $(document).ready(function()
         {
-            // TODO: #calc: read #a, #b and #op, convert the values to numbers and display the result in #result
             function calculation (){
                 var A =  parseFloat($("#a").val());
                 var B =  parseFloat($("#b").val());
@@ -24,11 +23,29 @@
                     $("#result").addClass("error");
                     return;
                 }
-                switch // continiue...
-                
+                switch (OP) {
+                    case "+":
+                        result = A + B;
+                        break;
+                    case "-":
+                        result = A - B;
+                        break;
+                    case "*":
+                        result = A * B;
+                        break;
+                    case "/":
+                        result = A / B;
+                        break;
+                    default:
+                        $("#result").text("Invalid operator.");
+                        $("#result").addClass("error");
+                        return;
+                }
+                $("#result").text(result);
+                $("#result").removeClass("error");
             }
 
-            // TODO: error messages for invalid input and division by zero
+            $("#a, #b, #op").on("input change", calculation);
         });
     </script>
 </head>
@@ -43,7 +60,6 @@
             <option value="/">÷</option>
         </select>
         <input type="number" id="b" placeholder="Number 2">
-        <button id="calc">=</button>
         <span id="result" class="result"></span>
     </p>
 </body>
