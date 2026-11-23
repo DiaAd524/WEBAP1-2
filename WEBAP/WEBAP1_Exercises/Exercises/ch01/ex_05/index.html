@@ -11,8 +11,35 @@
             // TODO: #summary: display all values in the list #output
             // TODO: enable/disable #summary depending on the name field (event input)
             // TODO: #reset: clear all fields and the list
-            
+            $("#name").on("input", function(){
+                if($("#name").val().trim()!==""){
+                    $("#summary").prop("disabled", false);
+                }
+                else{
+                    $("#summary").prop("disabled", true);
+                }
+            });
+            if ($("")){
+                $("#summary")
+            };
+            function summary(){
+                var NAME = $("#name").val();
+                var EMAIL = $("#email").val();
+                var CLASS = $("#class").val();
+                var LANGUAGE = $("input[name='language']:checked").val();
+                var NEWS = $("#newsletter").prop("checked");
+                var REMARKS = $("#remarks").val();
+                console.log("Function called "+NAME);
+                console.log("Btn clicked")
 
+
+                $("#output").html("<li><p>name: "+NAME+"</p></li><li><p>E-mail: "+EMAIL+"</p></li><li><p>Class: "+CLASS+"</p></li><li><p>Language: "+LANGUAGE+"</p></li><li><p>Newsletter: "+((NEWS==true) ? "Yes" : "No")+"</p></li><li><p>Remarks: "+REMARKS+"</p></li>");
+            };
+            function reset(){
+                $("#output").html("");
+            };
+            $("#summary").click(summary);
+            $("#reset").click(reset);
         });
     </script>
 </head>
